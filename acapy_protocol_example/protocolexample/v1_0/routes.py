@@ -1,4 +1,4 @@
-"""Privacy preserving ML admin routes."""
+"""Protocol example admin routes."""
 
 from aiohttp import web
 from aiohttp_apispec import docs, match_info_schema, request_schema, response_schema
@@ -29,7 +29,7 @@ class ConnIdMatchInfoSchema(Schema):
     )
 
 
-@docs(tags=["privacy-preserving ml"], summary="Tell agent to invoke the protocolexample")
+@docs(tags=["protocol example routes"], summary="Tell agent to invoke the protocolexample")
 @match_info_schema(ConnIdMatchInfoSchema())
 @request_schema(ProtocolExampleRequestSchema())
 @response_schema(ProtocolExampleRequestResponseSchema(), 200)
