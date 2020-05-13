@@ -17,10 +17,10 @@ class ProtocolExampleResponse(AgentMessage):
         message_type = PROTOCOL_EXAMPLE_RESPONSE
         schema_class = "ProtocolExampleResponseSchema"
 
-    def __init__(self, *, example: str, **kwargs):
+    def __init__(self, *, example_repsonse: str = None, **kwargs):
 
         super(ProtocolExampleResponse, self).__init__(kwargs)
-        self.example = example
+        self.example_repsonse = example_repsonse
 
 
 class ProtocolExampleResponseSchema(AgentMessageSchema):
@@ -29,10 +29,10 @@ class ProtocolExampleResponseSchema(AgentMessageSchema):
 
         model_class = ProtocolExampleResponse
 
-    example = fields.Str(
+    example_response = fields.Str(
         required=False,
-        description="This is an example of a string field in your message",
-        example="this is an example",
-        allow_none=False
+        description="This is an example of a response string",
+        example="protocol received response",
+        allow_none=True
     )
 

@@ -22,22 +22,10 @@ class ProtocolExampleResponseHandler(BaseHandler):
 
         """
 
-        self._logger.debug("ProtocolExampleResponseHandler called with context: %s", context)
+        self._logger.info("ProtocolExampleResponseHandler called")
         assert isinstance(context.message, ProtocolExampleResponse)
 
         self._logger.info(
-            "Received trust protocolexample response from: %s", context.message_receipt.sender_did
+            "Received protocolexample response from: %s with content - %s", context.message_receipt.sender_did, context.message
         )
 
-        if context.settings.get("debug.monitor_protocolexample"):
-            await responder.send_webhook(
-                "ping",
-                {
-                    "comment": context.message.comment,
-                    "connection_id": context.message_receipt.connection_id,
-                    "state": "response_received",
-                    "thread_id": context.message._thread_id,
-                },
-            )
-
-        # Nothing to do, Connection should be automatically promoted to 'active'

@@ -14,6 +14,7 @@ from .messages.protocolexample import ProtocolExample
 class ProtocolExampleRequestSchema(Schema):
 
     example = fields.Str(required=True, description="An example field in a http request")
+    response_requested = fields.Bool(required=False, description="Set to true if you want for a ProtocolExampleResponse to this message")
 
 
 class ProtocolExampleRequestResponseSchema(Schema):
@@ -46,6 +47,7 @@ async def connections_send_ping(request: web.BaseRequest):
     outbound_handler = request.app["outbound_message_router"]
     body = await request.json()
     example = body.get("example")
+    response_requested = body.get("response_requested")
 
     try:
         connection = await ConnectionRecord.retrieve_by_id(context, connection_id)
@@ -55,7 +57,7 @@ async def connections_send_ping(request: web.BaseRequest):
     if not connection.is_ready:
         raise web.HTTPBadRequest()
 
-    msg = ProtocolExample(example=example)
+    msg = ProtocolExample(example=example, response_requested=response_requested)
     await outbound_handler(msg, connection_id=connection_id)
 
     return web.json_response({"thread_id": msg._thread_id})

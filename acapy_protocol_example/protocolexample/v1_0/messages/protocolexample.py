@@ -9,6 +9,7 @@ from aries_cloudagent.messaging.agent_message import AgentMessage, AgentMessageS
 
 HANDLER_CLASS = f"{PROTOCOL_PACKAGE}.handlers.protocolexample_handler.ProtocolExampleHandler"
 
+
 class ProtocolExample(AgentMessage):
     """Class representing PPML Message"""
 
