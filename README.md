@@ -14,7 +14,7 @@ I think it is worth reiterating some of the content from Chapter 5 - it took me 
 
 In addition to the protocol's already implemented in Hyperledger aries projects, it is possible to define protocols for specific usecases. As long as you describe in the code of the agent a set of **Messages**, each with their own unique **MessageType**, **MessageSchema** and **Handler**. This is so that when the agent recieves a **Message** of a particular **MessageType**, it understands the expected structure of the message and how to **Handle** it. Handling a **Message** can include sending a webhook to the **Controller** or replying to the sender with a new Message.
 
-I have uploaded a walkthrough that dives into the Aca-Py implementation details of a protocol, you can view it [here](https://www.youtube.com/watch?v=HjD-fasHmX8). 
+I have uploaded a walkthrough [video that dives into the ACA-Py implementation details of a protocol](https://www.youtube.com/watch?v=HjD-fasHmX8). 
 
 To run through the example clone the repo then run `./manage up`. This starts 2 aca-py agents with the plugin protocolexample included and defined in acapy_protocol_example.protocolexample.
 
