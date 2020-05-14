@@ -1,6 +1,6 @@
-# Aries aca-py Protocol Example
+# Aries ACA-Py Protocol Example
 
-This repository contains a basic example of a Hyperledger Aries protocol implemented in python and included into the [Aca-Py cloud-agent](https://github.com/hyperledger/aries-cloudagent-python) as a plugin.
+This repository contains a basic example of a Hyperledger Aries protocol implemented in python and included into the [ACA-Py cloud-agent](https://github.com/hyperledger/aries-cloudagent-python) as a plugin.
 
 Hyperledger Aries is a project enabling trusted online peer-to-peer interactions through a set of protocols outlined in [aries-rfcs](https://github.com/hyperledger/aries-rfcs). 
 
